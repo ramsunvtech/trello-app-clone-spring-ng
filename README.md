@@ -25,7 +25,7 @@ Trello App Clone in Spring Boot and Angular 10.x
 1. Card Component  
 1. Board Model  
 1. Card Model  
-1. Board List Services  
+1. Board Services  
 1. New Board Services
 1. Card List Services  
 1. New Card Services  
