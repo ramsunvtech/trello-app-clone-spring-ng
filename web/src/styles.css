@@ -1,1 +1,383 @@
 /* You can add global styles to this file, and also import other style files */
+
+:root {
+  font-size: 10px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  background-color: #0079bf;
+}
+
+body, header, h1 {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #0079bf;
+  background-image: url('./assets/images/blue-mountains.jpg');
+  background-position: center;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font: inherit;
+  background: none;
+  border: none;
+  color: inherit;
+  padding: 0;
+  cursor: pointer;
+}
+
+:focus {
+  outline-color: #fa0;
+}
+
+.boards-menu {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.boards-btn {
+  flex-basis: 9rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #fff;
+  margin-right: 0.8rem;
+  padding: 0.6rem 0.8rem;
+}
+
+.boards-btn-icon {
+  font-size: 1.7rem;
+  padding-right: 1.2rem;
+}
+
+.board-search {
+  flex-basis: 18rem;
+  position: relative;
+}
+
+.board-search-input, .add-column-input {
+  height: 3rem;
+  border: none;
+  border-radius: 0.3rem;
+  background-color: #4c94be;
+  width: 100%;
+  padding: 0 3rem 0 1rem;
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+.board-search-input::-webkit-input-placeholder,
+.add-column-input::-webkit-input-placeholder { /* Edge */
+  color: #fff;
+}
+
+.board-search-input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #fff;
+}
+
+.board-search-input::placeholder {
+  color: #fff;
+}
+
+.board-search-input:hover {
+  background-color: #66a4c8;
+}
+
+.search-icon {
+  font-size: 1.5rem;
+  position: absolute;
+  top: 50%;
+  right: 0.8rem;
+  transform: translateY(-50%) rotate(90deg);
+  color: #fff;
+}
+
+.logo {
+  flex: 1;
+  font-family: "Courgette", cursive;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0 2rem;
+  transition: color 150ms;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.logo:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.logo-icon {
+  padding-right: 0.4rem;
+}
+
+/* Lists */
+
+.lists-container::-webkit-scrollbar {
+  height: 2.4rem;
+}
+
+.lists-container::-webkit-scrollbar-thumb {
+  background-color: #66a3c7;
+  border: 0.8rem solid #0079bf;
+  border-top-width: 0;
+}
+
+.lists-container {
+  display: flex;
+  align-items: start;
+  padding: 0 0.8rem 0.8rem;
+  overflow-x: auto;
+  height: calc(100vh - 8.6rem);
+}
+
+.list {
+  flex: 0 0 27rem;
+  display: flex;
+  flex-direction: column;
+  background-color: #e2e4e6;
+  max-height: calc(100vh - 11.8rem);
+  border-radius: 0.3rem;
+  margin-right: 1rem;
+}
+
+.list:last-of-type {
+  margin-right: 0;
+}
+
+.list-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #333;
+  padding: 1rem;
+}
+
+.list-items {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-content: start;
+  padding: 0 0.6rem 0.5rem;
+  overflow-y: auto;
+}
+
+.list-items::-webkit-scrollbar {
+  width: 1.6rem;
+}
+
+.list-items::-webkit-scrollbar-thumb {
+  background-color: #c4c9cc;
+  border-right: 0.6rem solid #e2e4e6;
+}
+
+.list-items li {
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1.3;
+  background-color: #fff;
+  padding: 0.65rem 0.6rem;
+  color: #4d4d4d;
+  border-bottom: 0.1rem solid #ccc;
+  border-radius: 0.3rem;
+  margin-bottom: 0.6rem;
+  word-wrap: break-word;
+  cursor: pointer;
+}
+
+.list-items li:last-of-type {
+  margin-bottom: 0;
+}
+
+.list-items li:hover {
+  background-color: #eee;
+}
+
+.add-card {
+padding: 6px 8px;
+margin: 0;
+}
+
+.add-card-btn {
+  display: block;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: #838c91;
+  padding: 1rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.add-card-btn:hover {
+  background-color: #cdd2d4;
+  color: #4d4d4d;
+  text-decoration: underline;
+}
+
+.add-list-btn {
+  flex: 0 0 27rem;
+  display: block;
+  font-size: 1.4rem;
+  font-weight: 400;
+  background-color: #006aa7;
+  color: #a5cae0;
+  padding: 1rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  transition: background-color 150ms;
+  text-align: left;
+}
+
+.add-list-btn:hover {
+  background-color: #005485;
+}
+
+.add-card-btn::after,
+.add-list-btn::after {
+  content: '...';
+}
+
+/* Grid Box Styling */
+
+@supports (display: grid) {
+  body {
+      display: grid;
+      grid-template-rows: 4rem 3rem auto;
+      grid-row-gap: 0.8rem;
+  }
+
+  app-header {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      grid-column-gap: 2rem;
+  }
+
+  .boards-menu {
+      display: grid;
+      grid-template-columns: 30rem;
+      grid-column-gap: 0.8rem;
+  }
+
+  .user-settings {
+      display: grid;
+      grid-template-columns: repeat(4, auto);
+      grid-column-gap: 0.8rem;
+  }
+
+  .board-controls {
+      display: grid;
+      grid-auto-flow: column;
+      grid-column-gap: 1rem;
+  }
+
+  .lists-container {
+      display: grid;
+      grid-auto-columns: 27rem;
+      grid-auto-flow: column;
+      grid-column-gap: 1rem;
+  }
+
+  .list {
+      display: grid;
+      grid-template-rows: auto minmax(auto, 1fr) auto;
+  }
+
+  .list-items {
+      display: grid;
+      grid-row-gap: 0.6rem;
+  }
+
+  .logo,
+  .list,
+  .list-items li,
+  .boards-btn,
+  .board-info-bar,
+  .board-controls .btn,
+  .user-settings-btn {
+      margin: 0;
+  }
+
+  .card {
+    display: flex;
+  }
+  
+  .card .item {
+    flex-direction: column;
+  }
+
+  .card .name, .card .edit-card-input {
+    width: 95%;
+  }
+
+  .card .name:focus {
+    border:0 none;
+  }
+
+  .card .action {
+    width: 15%;
+  }
+
+  .card .action .edit {
+    color: blue;
+    text-decoration: none;
+  }
+
+  .card .action .delete {
+    color: red;
+    text-decoration: none;
+  }
+
+  .textarea-input {
+    overflow: hidden;
+    overflow-wrap: break-word;
+    height: 40px;
+    background: #fff;
+    border: none;
+    padding: 5px;
+    box-shadow: none;
+    margin-bottom: 10px;
+    max-height: 162px;
+    min-height: 54px;
+    overflow-y: auto;
+    resize: vertical;
+    width: 100%;
+    color: #172b4d;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    border-radius: 3px;
+    display: block;
+    line-height: 20px;
+    transition-property: background-color,border-color,box-shadow;
+    transition-duration: 85ms;
+    transition-timing-function: ease;
+  }
+
+  .add-button {
+    background-color: #49852e;
+    box-shadow: none;
+    border: none;
+    color: #fff;
+    padding: 6px 12px;  
+    text-align: center;
+    transition-property: background-color,border-color,box-shadow;
+    transition-duration: 85ms;
+    transition-timing-function: ease;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    border-radius: 3px;
+  }
+}

@@ -1,0 +1,25 @@
+:host {
+  padding: 7px 5px;
+  margin-bottom: 7px;
+  flex-basis: 4rem;
+  display: flex;
+  align-items: center;
+  background-color: #0067a3;
+  box-shadow: 0 0.1rem 0.1rem rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  font-size: 18px;
+  font-weight: bold;
+  font-family: "arial, sans-serif";
+}
+
+.btn {
+  background-color: #4c94be;
+  border-radius: 0.3rem;
+  transition: background-color 150ms;
+}
+
+.btn:hover {
+  background-color: #3385b5;
+}
