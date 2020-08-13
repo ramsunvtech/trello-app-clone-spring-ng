@@ -37,13 +37,24 @@ The scope should be the name of the modules / directory affected (as perceived b
 
 The following is the list of supported scopes:
 
-* **general** - In General Changes.
-* **ui/<componentName>** - UI Component Changes
-* **domain/<componentName>** - Domain component Changes
+### Angular
+* **ui/general** - In General Changes.
+* **components/<componentName>** - Component Changes
+* **store** - Store Changes
 * **modules/<moduleName>** - Module Changes
 * **services/<serviceName>** - Services Changes
 * **hooks/<hooksName>** - Custom Hook Changes
+* **pipes/<hooksName>** - Pipes Changes
 * **i18n** - Locale Text Changes
 * **theme** - Material UI Custom Theme Changes
-* **store/<action_or_reducerName>** - Redux Store Level Changes
+* **action/<actionName>** - Redux Action Changes
+* **selector/<selectorName>** - Redux Store Selector Changes
+* **reducer/<reducerName>** - Redux Store Reducer Changes
+* **mock/apiName** - Mock API Changes
+
+### Spring
+* **api/general** - In General Changes.
+* **controller/<controllerName>** - Controller Changes
+* **model/<modelName>** - Model Changes
+* **services/<serviceName>** - Services Changes
 * **mock/apiName** - Mock API Changes
