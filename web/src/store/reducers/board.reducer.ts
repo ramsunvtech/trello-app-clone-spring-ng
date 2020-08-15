@@ -6,28 +6,44 @@ import * as boardActions from '../actions/board.action';
 // models
 import { BoardItem } from '../../common/models/board';
 
-export interface BoardState {
-  boards: BoardItem[];
+export interface State {
+  boardList: BoardItem[];
 }
 
-export const initialState: BoardState = {
-  boards: [
+// TODO: Remove on backend integration
+export const initialState: State = {
+  boardList: [
     {
       id: 1,
-      title: 'sample',
+      title: 'Things to do',
       boardId: 1,
+    },
+    {
+      id: 2,
+      title: 'Doing',
+      boardId: 2,
+    },
+    {
+      id: 3,
+      title: 'Done',
+      boardId: 3,
+    },
+    {
+      id: 4,
+      title: 'Tomorrow',
+      boardId: 4,
     },
   ],
 };
 
-const onAddBoard = (state: BoardState, { board }) => {
-  const boards: BoardItem[] = [...state.boards];
+const onAddBoard = (state: State, { board }) => {
+  const boardList: BoardItem[] = [...state.boardList];
 
-  boards.push(board);
+  boardList.push(board);
 
   return {
     ...state,
-    boards,
+    boardList,
   };
 };
 
@@ -36,9 +52,6 @@ const boardReducer = createReducer(
   on(boardActions.addBoard, onAddBoard)
 );
 
-export function reducer(
-  state: BoardState | undefined,
-  action: Action
-): BoardState {
+export function reducer(state: State | undefined, action: Action): State {
   return boardReducer(state, action);
 }
