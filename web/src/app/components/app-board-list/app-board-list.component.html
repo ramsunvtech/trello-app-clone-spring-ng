@@ -1,0 +1,7 @@
+<section class="lists-container">
+  <ng-container *ngIf="boardList | async as boardList">
+    <div class="list" *ngFor="let boardItem of boardList">
+      <h3 class="list-title">{{boardItem.title}}</h3>
+    </div>
+  </ng-container>
+</section>
