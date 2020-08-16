@@ -26,4 +26,9 @@ public class CardController {
     public ResponseEntity<CardModel> addNewCard(@RequestBody CardModel newCardInfo) {
         return new ResponseEntity<CardModel>(newCardInfo, HttpStatus.OK);
     }
+
+    @PostMapping(value="/api/edit-card")
+    public ResponseEntity<CardModel> editCard(@RequestBody CardModel newCardInfo) {
+        return new ResponseEntity<CardModel>(newCardInfo, HttpStatus.OK);
+    }
 }
