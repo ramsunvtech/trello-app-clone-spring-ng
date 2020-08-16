@@ -1,0 +1,14 @@
+<div class="column-wrapper mod-add" [style.display]="formVisible ? '' : 'none'">
+  <div class="column">
+    <div class="column-creator">
+      <form>
+        <input name="listTitle" [(ngModel)]="listTitle" class="add-column-input" type="text"
+          placeholder="Enter list title...">
+        <button (click)="addNewBoardItem()" class="primary add-button" type="submit">Add another column</button>&nbsp;<a
+          href="#" class="cancel-btn" (click)="formVisible = false;">Cancel</a>
+      </form>
+    </div>
+  </div>
+</div>
+<button class="add-list-btn btn" [style.display]="formVisible ? 'none' : ''" (click)="formVisible = true;">+ Add another
+  list</button>
