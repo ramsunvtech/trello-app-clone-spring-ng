@@ -3,10 +3,7 @@ package io.trello.trelloapp.card;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
@@ -28,8 +25,15 @@ public class CardController {
         return CardJpaRepository.findById(newCardInfo.getId());
     }
 
-    @PostMapping(value="/api/edit-card")
-    public ResponseEntity<CardModel> editCard(@RequestBody CardModel newCardInfo) {
-        return new ResponseEntity<CardModel>(newCardInfo, HttpStatus.OK);
+    @PutMapping(value="/api/edit-card")
+    public Optional<CardModel> editCard(@RequestBody CardModel editCardInfo) {
+        CardJpaRepository.save(editCardInfo);
+        return CardJpaRepository.findById(editCardInfo.getId());
+    }
+
+    @DeleteMapping(value="/api/delete-card/{cardId}")
+    public Optional<CardModel> deleteCard(@PathVariable("cardId") Long cardId) {
+        CardJpaRepository.deleteById(cardId);
+        return Optional.empty();
     }
 }
