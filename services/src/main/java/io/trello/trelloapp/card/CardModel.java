@@ -1,12 +1,22 @@
 package io.trello.trelloapp.card;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class CardModel {
-    public Integer id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    public Long id;
     public String title;
     public String description;
     public Integer boardId;
 
-    public CardModel(Integer id, String title, String description, Integer boardId) {
+    protected CardModel() {}
+
+    public CardModel(Long id, String title, String description, Integer boardId) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -37,11 +47,11 @@ public class CardModel {
         this.boardId = boardId;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 }
