@@ -1,22 +1,30 @@
 package io.trello.trelloapp.board;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
+import java.util.Optional;
 
 @RestController
 public class BoardController {
-    @GetMapping(value="/api/board-list")
-    public ResponseEntity<BoardListModel> getBoardList() {
-        ArrayList<BoardModel> Boards = new ArrayList<BoardModel>();
-        Boards.add(new BoardModel(1, "Things To Do", 1));
-        Boards.add(new BoardModel(1, "Doing", 1));
-        Boards.add(new BoardModel(1, "Done", 1));
-        BoardListModel boardLisResponse = new BoardListModel(Boards);
 
-        return new ResponseEntity<BoardListModel>(boardLisResponse, HttpStatus.OK);
+    @Autowired
+    private BoardRepository BoardJpaRepository;
+
+    @GetMapping(value="/api/board-list")
+    public ResponseEntity<BoardListResponse> getBoardList() {
+        BoardListResponse boardLisResponse = new BoardListResponse(BoardJpaRepository.findAll());
+        return new ResponseEntity<BoardListResponse>(boardLisResponse, HttpStatus.OK);
+    }
+
+    @PostMapping(value="/api/new-board")
+    public Optional<BoardModel> addNewBoard(@RequestBody BoardModel newBoardInfo) {
+        BoardJpaRepository.save(newBoardInfo);
+        return BoardJpaRepository.findById(newBoardInfo.getId());
     }
 }
