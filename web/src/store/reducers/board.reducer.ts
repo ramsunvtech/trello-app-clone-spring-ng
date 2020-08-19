@@ -1,39 +1,17 @@
 import { Action, createReducer, on } from '@ngrx/store';
 
 // actions
-import * as boardActions from '../actions/board.action';
+import * as boardActions from 'src/store/actions/board.action';
 
 // models
-import { BoardItem } from '../../common/models/board';
+import { BoardItem } from 'src/common/models/board';
 
 export interface State {
   boardList: BoardItem[];
 }
 
-// TODO: Remove on backend integration
 export const initialState: State = {
-  boardList: [
-    {
-      id: 1,
-      title: 'Things to do',
-      boardId: 1,
-    },
-    {
-      id: 2,
-      title: 'Doing',
-      boardId: 2,
-    },
-    {
-      id: 3,
-      title: 'Done',
-      boardId: 3,
-    },
-    {
-      id: 4,
-      title: 'Tomorrow',
-      boardId: 4,
-    },
-  ],
+  boardList: [],
 };
 
 const onAddBoard = (state: State, { board }) => {
@@ -47,9 +25,17 @@ const onAddBoard = (state: State, { board }) => {
   };
 };
 
+const onGetBoards = (state: State, { boardList }) => {
+  return {
+    ...state,
+    boardList,
+  };
+};
+
 const boardReducer = createReducer(
   initialState,
-  on(boardActions.addBoard, onAddBoard)
+  on(boardActions.AddBoardSuccess, onAddBoard),
+  on(boardActions.GetBoardsSuccess, onGetBoards)
 );
 
 export function reducer(state: State | undefined, action: Action): State {
