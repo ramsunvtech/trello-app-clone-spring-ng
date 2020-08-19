@@ -1,17 +1,21 @@
 package io.trello.trelloapp.card;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
-@Entity
+@Entity(name="cards")
 public class CardModel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="id", nullable = false)
     public Long id;
+
+    @Column(name="title", nullable = false)
     public String title;
+
+    @Column(name="description", nullable = false)
     public String description;
+
+    @Column(name="board_id", nullable = false)
     public Integer boardId;
 
     protected CardModel() {}

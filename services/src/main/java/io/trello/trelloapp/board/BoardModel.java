@@ -1,14 +1,18 @@
 package io.trello.trelloapp.board;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
-@Entity
+@Entity(name="boards")
 public class BoardModel {
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    @Column(name="id", nullable = false)
     public Long id;
+
+    @Column(name="title", nullable = false)
     public String title;
+
+    @Column(name="board_id", nullable = false)
     public Integer boardId;
 
     protected BoardModel() {}
@@ -35,8 +39,6 @@ public class BoardModel {
         this.boardId = boardId;
     }
 
-    @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
     public Long getId() {
         return id;
     }
