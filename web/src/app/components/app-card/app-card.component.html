@@ -1,0 +1,10 @@
+<div class="card" draggable="true" id="{{cardItem.id}}">
+  <div class="item">
+    <span class="name" [attr.contenteditable]="editable">{{cardItem.title}}</span><br />
+    <span class="description" [attr.contenteditable]="editable">{{cardItem.description}}</span>
+  </div>
+  <span class="action">
+    <a href="#" class="edit" (click)="toggleEditMode();">E</a> |
+    <a href="#" class="delete" (click)="deleteCard()">X</a>
+  </span>
+</div>
