@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { EffectsModule } from '@ngrx/effects';
 
 import { AppComponent } from './app.component';
 import {
@@ -11,7 +13,11 @@ import {
   AppCardComponent,
 } from './components';
 
-import { Store } from '../store';
+// store
+import { Store } from 'src/store';
+
+// effects
+import { BoardEffects } from 'src/store/effects';
 
 @NgModule({
   declarations: [
@@ -22,7 +28,13 @@ import { Store } from '../store';
     AppBoardFormComponent,
     AppCardComponent,
   ],
-  imports: [BrowserModule, FormsModule, Store],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    Store,
+    EffectsModule.forRoot([BoardEffects]),
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

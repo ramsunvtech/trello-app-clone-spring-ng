@@ -7,7 +7,7 @@ import { BoardItem } from 'src/common/models';
 import { AppState } from 'src/store/reducers';
 
 // action
-import { addBoard } from 'src/store/actions';
+import { AddBoard } from 'src/store/actions';
 
 @Component({
   selector: 'app-board-form',
@@ -27,13 +27,12 @@ export class AppBoardFormComponent {
       return;
     }
 
-    const board: BoardItem = {
+    const board: Partial<BoardItem> = {
       title: this.listTitle,
-      id: 1,
       boardId: 1,
     };
 
-    this.store.dispatch(addBoard({ board }));
+    this.store.dispatch(AddBoard({ board }));
 
     this.listTitle = '';
   }
