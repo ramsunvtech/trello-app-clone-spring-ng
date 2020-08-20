@@ -1,0 +1,12 @@
+<button (click)="formVisible = true;" class="add-card-btn btn" [style.display]="formVisible ? 'none': ''">+ Add another
+  card</button>
+<div class="card-composer" [style.display]="!formVisible ? 'none': ''">
+  <form id="new-card-form" class="card-creator">
+    <div class="add-card">
+      <textarea name="cardTitle" [(ngModel)]="cardTitle" class="textarea-input"
+        placeholder="Enter a Title for this card"></textarea>
+      <button (click)="addCard()" class="add-button primary" type="submit">Add card</button>&nbsp;<a href="#"
+        class="cancel-btn" (click)="formVisible = false;">Cancel</a>
+    </div>
+  </form>
+</div>
