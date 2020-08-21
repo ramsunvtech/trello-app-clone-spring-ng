@@ -18,6 +18,7 @@ import { Store } from 'src/store';
 
 // effects
 import { BoardEffects } from 'src/store/effects';
+import { AppCardFormComponent } from './components/app-card-form/app-card-form.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { BoardEffects } from 'src/store/effects';
     AppBoardComponent,
     AppBoardFormComponent,
     AppCardComponent,
+    AppCardFormComponent,
   ],
   imports: [
     BrowserModule,
