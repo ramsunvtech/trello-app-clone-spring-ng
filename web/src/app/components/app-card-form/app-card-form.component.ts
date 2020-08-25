@@ -1,8 +1,14 @@
-import { AppCardFormComponentInterface } from './app-card-form.interface';
 import { Component, Input } from '@angular/core';
+import { Store } from '@ngrx/store';
+
+// interface
+import { AppCardFormComponentInterface } from './app-card-form.interface';
 
 // models
 import { CardItem } from 'src/common/models';
+
+// actions
+import { AddCard } from 'src/store/actions';
 
 @Component({
   selector: 'app-card-form',
@@ -13,12 +19,24 @@ export class AppCardFormComponent implements AppCardFormComponentInterface {
   cardTitle: string;
   @Input() boardId: number;
 
-  constructor() {
+  constructor(private store: Store) {
     this.formVisible = false;
   }
 
   addCard(): void {
-    // TODO: To be changed on service addition
+    if (!this.cardTitle) {
+      return;
+    }
+
+    const card: CardItem = {
+      id: null,
+      boardId: this.boardId,
+      title: this.cardTitle,
+      description: 'No Description',
+    };
+
+    this.store.dispatch(AddCard({ card }));
+
     this.cardTitle = '';
     this.formVisible = false;
   }

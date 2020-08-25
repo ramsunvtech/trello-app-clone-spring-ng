@@ -17,7 +17,7 @@ import {
 import { Store } from 'src/store';
 
 // effects
-import { BoardEffects } from 'src/store/effects';
+import { BoardEffects, CardEffects } from 'src/store/effects';
 import { AppCardFormComponent } from './components/app-card-form/app-card-form.component';
 
 @NgModule({
@@ -35,7 +35,7 @@ import { AppCardFormComponent } from './components/app-card-form/app-card-form.c
     FormsModule,
     HttpClientModule,
     Store,
-    EffectsModule.forRoot([BoardEffects]),
+    EffectsModule.forRoot([BoardEffects, CardEffects]),
   ],
   providers: [],
   bootstrap: [AppComponent],
