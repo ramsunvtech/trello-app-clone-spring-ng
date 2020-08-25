@@ -12,10 +12,10 @@ import {
 } from '../actions';
 
 // service
-import { BoardService } from '../../app/board.service';
+import { BoardService } from 'src/app/services';
 
 // models
-import { BoardItem } from '../../common/models';
+import { BoardItem } from 'src/common/models';
 
 @Injectable()
 export class BoardEffects {

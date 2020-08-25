@@ -1,10 +1,15 @@
+import { Store, select } from '@ngrx/store';
+import { Observable } from 'rxjs';
 import { Component, OnInit, Input } from '@angular/core';
 
 // interface
 import { AppBoardComponentInterface } from './app-board.interface';
 
 // models
-import { BoardItem } from './../../../common/models';
+import { BoardItem, CardItem } from 'src/common/models';
+
+// selectors
+import { selectCardsForBoard } from 'src/store/selectors';
 
 @Component({
   selector: 'app-board',
@@ -13,8 +18,13 @@ import { BoardItem } from './../../../common/models';
 })
 export class AppBoardComponent implements OnInit, AppBoardComponentInterface {
   @Input() boardItem: BoardItem;
+  cardList: Observable<CardItem[]>;
 
-  constructor() {}
+  constructor(private store: Store) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.cardList = this.store.pipe(
+      select(selectCardsForBoard, { boardId: this.boardItem.id })
+    );
+  }
 }

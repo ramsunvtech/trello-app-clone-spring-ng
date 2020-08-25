@@ -1,9 +1,12 @@
-import * as boardList from './board.reducer';
+import * as boardReducer from './board.reducer';
+import * as cardReducer from './card.reducer';
 
 export interface AppState {
-  board: boardList.State;
+  board: boardReducer.State;
+  card: cardReducer.State;
 }
 
 export const reducers = {
-  board: boardList.reducer,
+  board: boardReducer.reducer,
+  card: cardReducer.reducer,
 };

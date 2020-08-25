@@ -2,18 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
-// models
-import { BoardItem } from './../../../common/models';
-import { AppState } from './../../../store/reducers';
-
 // interface
 import { AppBoardListComponentInterface } from './app-board-list.interface';
 
+// models
+import { BoardItem } from 'src/common/models';
+import { AppState } from 'src/store/reducers';
+
 // selectors
-import { selectAllBoards } from './../../../store/selectors';
+import { selectAllBoards } from 'src/store/selectors';
 
 // actions
-import { GetBoards } from 'src/store/actions';
+import { GetBoards, GetCards } from 'src/store/actions';
 
 @Component({
   selector: 'app-board-list',
@@ -30,5 +30,6 @@ export class AppBoardListComponent
 
   ngOnInit(): void {
     this.store.dispatch(GetBoards());
+    this.store.dispatch(GetCards());
   }
 }
