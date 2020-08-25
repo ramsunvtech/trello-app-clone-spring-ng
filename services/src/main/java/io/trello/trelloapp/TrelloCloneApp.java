@@ -22,7 +22,7 @@ public class TrelloCloneApp {
 		return new WebMvcConfigurer() {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/**").allowedOrigins(apiDev);
+        registry.addMapping("/**").allowedOrigins(apiDev).allowedMethods("*");
 			}
 		};
 	}
