@@ -1,8 +1,10 @@
 import { Action, createReducer, on } from '@ngrx/store';
 
+// actions
 import {
   GetCardsSuccess,
   AddCardSuccess,
+  EditCardSuccess,
   DeleteCardSuccess,
 } from 'src/store/actions';
 
@@ -35,6 +37,19 @@ const onAddCard = (state: State, { card }) => {
   };
 };
 
+const onEditCard = (state: State, { card }) => {
+  const cardList: CardItem[] = [...state.cardList];
+
+  const cIndex = cardList.findIndex((c: CardItem) => c.id === card.id);
+
+  cardList[cIndex] = card;
+
+  return {
+    cardList,
+    ...state,
+  };
+};
+
 const onDeleteCard = (state: State, { cardId }) => {
   const cardList: CardItem[] = [...state.cardList].filter(
     (card: CardItem) => card.id !== cardId
@@ -50,6 +65,7 @@ const cardReducer = createReducer(
   initialState,
   on(GetCardsSuccess, onGetCards),
   on(AddCardSuccess, onAddCard),
+  on(EditCardSuccess, onEditCard),
   on(DeleteCardSuccess, onDeleteCard)
 );
 

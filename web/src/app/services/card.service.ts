@@ -23,7 +23,7 @@ export class CardService {
   }
 
   editCard(card: CardItem): Observable<object> {
-    return this.http.post(environment.apiUrl + '/api/edit-card', card);
+    return this.http.put(environment.apiUrl + '/api/edit-card', card);
   }
 
   deleteCard(cardId: number): Observable<object> {

@@ -1,3 +1,4 @@
+import { EditCard, EditCardSuccess } from './../actions/card.action';
 import { CardItem } from 'src/common/models/card';
 import {
   GetCards,
@@ -39,6 +40,18 @@ export class CardEffects {
       mergeMap((action) =>
         this.cardService.addCard(action.card).pipe(
           map((card: CardItem) => AddCardSuccess({ card })),
+          catchError(() => EMPTY)
+        )
+      )
+    )
+  );
+
+  editCard = createEffect(() =>
+    this.action.pipe(
+      ofType(EditCard),
+      mergeMap((action) =>
+        this.cardService.editCard(action.card).pipe(
+          map((card: CardItem) => EditCardSuccess({ card })),
           catchError(() => EMPTY)
         )
       )
