@@ -19,3 +19,13 @@ export const AddCardSuccess = createAction(
   '[Home Page] Add Card Success',
   props<{ card: CardItem }>()
 );
+
+export const DeleteCard = createAction(
+  '[Home Page] Delete Card',
+  props<{ cardId: number }>()
+);
+
+export const DeleteCardSuccess = createAction(
+  '[Home Page] Delete Card Success',
+  props<{ cardId: number }>()
+);

@@ -4,6 +4,8 @@ import {
   AddCard,
   GetCardsSuccess,
   AddCardSuccess,
+  DeleteCard,
+  DeleteCardSuccess,
 } from 'src/store/actions';
 
 import { CardService } from 'src/app/services/card.service';
@@ -37,6 +39,18 @@ export class CardEffects {
       mergeMap((action) =>
         this.cardService.addCard(action.card).pipe(
           map((card: CardItem) => AddCardSuccess({ card })),
+          catchError(() => EMPTY)
+        )
+      )
+    )
+  );
+
+  deleteCard = createEffect(() =>
+    this.action.pipe(
+      ofType(DeleteCard),
+      mergeMap((action) =>
+        this.cardService.deleteCard(action.cardId).pipe(
+          map(() => DeleteCardSuccess({ cardId: action.cardId })),
           catchError(() => EMPTY)
         )
       )
