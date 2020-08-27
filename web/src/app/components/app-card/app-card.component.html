@@ -1,7 +1,9 @@
 <div class="card" draggable="true" id="{{cardItem.id}}">
   <div class="item">
-    <span class="name" [attr.contenteditable]="editable">{{cardItem.title}}</span><br />
-    <span class="description" [attr.contenteditable]="editable">{{cardItem.description}}</span>
+    <span class="name" [contentEditable]="editable" [textContent]="title"
+      (input)="title = $event.target.textContent"></span><br />
+    <span class="description" [contentEditable]="editable" [textContent]="description"
+      (input)="description = $event.target.textContent"></span>
   </div>
   <span class="action">
     <a href="#" class="edit" (click)="toggleEditMode();">E</a> |

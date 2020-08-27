@@ -20,6 +20,16 @@ export const AddCardSuccess = createAction(
   props<{ card: CardItem }>()
 );
 
+export const EditCard = createAction(
+  '[Home Page] Edit Card',
+  props<{ card: CardItem }>()
+);
+
+export const EditCardSuccess = createAction(
+  '[Home Page] Edit Card Success',
+  props<{ card: CardItem }>()
+);
+
 export const DeleteCard = createAction(
   '[Home Page] Delete Card',
   props<{ cardId: number }>()
