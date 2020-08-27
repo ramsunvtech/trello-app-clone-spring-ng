@@ -4,6 +4,9 @@ import { Store } from '@ngrx/store';
 // models
 import { CardItem } from 'src/common/models';
 
+// actions
+import { DeleteCard } from 'src/store/actions';
+
 // interface
 import { AppCardComponentInterface } from './app-card.interface';
 
@@ -24,6 +27,6 @@ export class AppCardComponent implements AppCardComponentInterface {
   }
 
   deleteCard(): void {
-    console.log('delete this card !!!');
+    this.store.dispatch(DeleteCard({ cardId: this.cardItem.id }));
   }
 }

@@ -3,7 +3,8 @@ import { Action, createReducer, on } from '@ngrx/store';
 import {
   GetCardsSuccess,
   AddCardSuccess,
-} from './../actions/card.action';
+  DeleteCardSuccess,
+} from 'src/store/actions';
 
 // models
 import { CardItem } from 'src/common/models/card';
@@ -34,10 +35,22 @@ const onAddCard = (state: State, { card }) => {
   };
 };
 
+const onDeleteCard = (state: State, { cardId }) => {
+  const cardList: CardItem[] = [...state.cardList].filter(
+    (card: CardItem) => card.id !== cardId
+  );
+
+  return {
+    ...state,
+    cardList,
+  };
+};
+
 const cardReducer = createReducer(
   initialState,
   on(GetCardsSuccess, onGetCards),
   on(AddCardSuccess, onAddCard),
+  on(DeleteCardSuccess, onDeleteCard)
 );
 
 export function reducer(state: State | undefined, action: Action): State {
