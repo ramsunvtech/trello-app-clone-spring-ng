@@ -31,6 +31,7 @@ Must be one of the following:
 * **tech**: Any Technical Activities.
 * **style**: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
 * **test**: Adding missing tests or correcting existing tests
+* **e2e**: Adding E2E Tests
 
 ### Scope
 The scope should be the name of the modules / directory affected (as perceived by the person reading the changelog generated from commit messages).
@@ -58,3 +59,7 @@ The following is the list of supported scopes:
 * **model/<modelName>** - Model Changes
 * **services/<serviceName>** - Services Changes
 * **mock/apiName** - Mock API Changes
+  
+### Cypress
+* **moduleName** - Module Name Changes.
+* **general** - General Changes.
