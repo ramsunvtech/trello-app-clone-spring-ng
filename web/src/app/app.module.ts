@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { EffectsModule } from '@ngrx/effects';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 import { AppComponent } from './app.component';
 import {
@@ -34,6 +35,7 @@ import { AppCardFormComponent } from './components/app-card-form/app-card-form.c
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    DragDropModule,
     Store,
     EffectsModule.forRoot([BoardEffects, CardEffects]),
   ],

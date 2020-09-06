@@ -1,8 +1,10 @@
 <div class="list" title="{{boardItem.title}}">
   <h3 class="list-title">{{boardItem.title}}</h3>
-  <ul class="list-items" *ngIf="(cardList | async)?.length > 0">
-    <li *ngFor="let cardItem of cardList | async">
-      <app-card [cardItem]="cardItem"></app-card>
+  <ul class="list-items" id={{boardItem.id}} cdkDropList [cdkDropListData]="cardList"
+    (cdkDropListDropped)="drop($event)" [cdkDropListConnectedTo]="getConnectedIds()">
+    <li cdkDrag [cdkDragData]="cardItem" *ngFor="let cardItem of cardList">
+      <app-card [cardItem]="cardItem">
+      </app-card>
     </li>
   </ul>
   <app-card-form [boardId]="boardItem.id"></app-card-form>

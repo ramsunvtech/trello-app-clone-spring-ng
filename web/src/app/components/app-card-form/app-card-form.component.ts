@@ -1,3 +1,4 @@
+import { CardService } from 'src/app/services';
 import { Component, Input } from '@angular/core';
 import { Store } from '@ngrx/store';
 
@@ -19,7 +20,7 @@ export class AppCardFormComponent implements AppCardFormComponentInterface {
   cardTitle: string;
   @Input() boardId: number;
 
-  constructor(private store: Store) {
+  constructor(private store: Store, private cardService: CardService) {
     this.formVisible = false;
   }
 
@@ -35,7 +36,7 @@ export class AppCardFormComponent implements AppCardFormComponentInterface {
       description: 'No Description',
     };
 
-    this.store.dispatch(AddCard({ card }));
+    this.cardService.addCard(card);
 
     this.cardTitle = '';
     this.formVisible = false;

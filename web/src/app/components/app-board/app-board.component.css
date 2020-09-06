@@ -1,0 +1,96 @@
+/* Animate items as they're being sorted. */
+.cdk-drop-list-dragging .cdk-drag {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+/* Animate an item that has been dropped. */
+.cdk-drag-animating {
+  transition: transform 300ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.cdk-drag-preview {
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1.3;
+  background-color: #fff;
+  padding: 0.65rem 0.6rem;
+  color: #4d4d4d;
+  border-bottom: 0.1rem solid #ccc;
+  border-radius: 0.3rem;
+  margin-bottom: 0.6rem;
+  word-wrap: break-word;
+  list-style-type: none;
+  cursor: pointer;
+}
+
+.cdk-drag-preview .card {
+  display: flex;
+  background: white;
+}
+
+.cdk-drag-preview .item {
+  flex-direction: column;
+}
+
+.cdk-drag-preview .name,
+.cdk-drag-preview .edit-card-input {
+  width: 95%;
+}
+
+.cdk-drag-preview .name:focus {
+  border: 0 none;
+}
+
+.cdk-drag-preview .action {
+  width: 15%;
+}
+
+.cdk-drag-preview .action .edit {
+  color: blue;
+  text-decoration: none;
+}
+
+.cdk-drag-preview .action .delete {
+  color: red;
+  text-decoration: none;
+}
+
+.textarea-input {
+  overflow: hidden;
+  overflow-wrap: break-word;
+  height: 40px;
+  background: #fff;
+  border: none;
+  padding: 5px;
+  box-shadow: none;
+  margin-bottom: 10px;
+  max-height: 162px;
+  min-height: 54px;
+  overflow-y: auto;
+  resize: vertical;
+  width: 100%;
+  color: #172b4d;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  border-radius: 3px;
+  display: block;
+  line-height: 20px;
+  transition-property: background-color, border-color, box-shadow;
+  transition-duration: 85ms;
+  transition-timing-function: ease;
+}
+
+.add-button {
+  background-color: #49852e;
+  box-shadow: none;
+  border: none;
+  color: #fff;
+  padding: 6px 12px;
+  text-align: center;
+  transition-property: background-color, border-color, box-shadow;
+  transition-duration: 85ms;
+  transition-timing-function: ease;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  border-radius: 3px;
+}
