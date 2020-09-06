@@ -1,6 +1,7 @@
 <section class="lists-container">
   <ng-container *ngIf="boardList | async as boardList">
-    <app-board *ngFor="let boardItem of boardList" [boardItem]="boardItem"></app-board>
+    <app-board *ngFor="let boardItem of boardList" [boardItem]="boardItem" [boardList]="boardList">
+    </app-board>
   </ng-container>
   <app-board-form></app-board-form>
 </section>
